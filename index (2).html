@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serfolio Analytics | Intelligence in Motion</title>
+    <meta name="description" content="Serfolio Analytics - AI-driven marketing systems and automation-first workflows.">
+    <meta property="og:title" content="Serfolio Analytics | Business Consulting and Digital Solutions ">
+    <meta property="og:description" content="AI-driven marketing systems, SEO, automation, and web development to accelerate your brand's growth.">
+    <meta property="og:image" content="https://serfolioanalytics.in/logo.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Serfolio Analytics | Intelligence in Motion">
+    <meta name="twitter:description" content="AI-driven marketing, SEO, and automation services.">
+    <meta name="twitter:image" content="https://serfolioanalytics.in/logo.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MarketingAgency",
+      "name": "Serfolio Analytics",
+      "logo": "https://serfolioanalytics.in/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-93849-31363",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.instagram.com/serfolio_analytics",
+        "https://www.facebook.com/SerfolioAnalytics",
+        "https://x.com/SerfolioAnalyst",
+        "https://www.linkedin.com/in/serfolio-analytics-640091409"
+      ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css?v=1.0.3">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.167.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.167.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Cursor Glow -->
+    <div id="cursor-glow"></div>
+    <!-- Enterprise Sticky Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <div id="logo-container" class="logo-fixed" onclick="document.getElementById('slide-landing').scrollIntoView({ behavior: 'smooth' })" style="position: static; margin: 0;">
+                <img src="./logo.png" alt="Serfolio Analytics Logo" id="main-logo" loading="lazy">
+                <span class="logo-text"><span class="brand-dark">Serfolio</span> <span class="brand-light">Analytics</span></span>
+            </div>
+            
+            <nav class="global-nav" style="position: static; gap: 32px; display: flex; align-items: center; margin: 0;">
+                <button class="nav-link" onclick="document.getElementById('slide-2').scrollIntoView({ behavior: 'smooth' })">About Us</button>
+                <div class="nav-dropdown-wrapper" style="position: relative;">
+                    <button class="nav-link dropdown-trigger" onclick="document.getElementById('slide-3').scrollIntoView({ behavior: 'smooth' })">Services <span class="chevron" style="font-size: 0.8rem; margin-left: 2px;">▾</span></button>
+                    <div class="nav-dropdown">
+                        <a href="service-social.html" class="nav-dropdown-link">Social Media Growth &amp; Content Pipelines</a>
+                        <a href="service-meta.html" class="nav-dropdown-link">Graph API &amp; Lead-Capture Systems</a>
+                        <a href="service-seo.html" class="nav-dropdown-link">Cognitive Search &amp; AEO Dominance</a>
+                        <a href="service-email.html" class="nav-dropdown-link">Email Automation</a>
+                        <a href="service-marketing.html" class="nav-dropdown-link">Corporate Identity &amp; Analytics Attribution</a>
+                        <a href="service-web.html" class="nav-dropdown-link">Bespoke Web Applications &amp; Engineering</a>
+                    </div>
+                </div>
+                <button class="nav-link" onclick="document.getElementById('slide-4').scrollIntoView({ behavior: 'smooth' })">Contact</button>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cta-button nav-cta-button" onclick="document.getElementById('slide-4').scrollIntoView({ behavior: 'smooth' })" style="padding: 10px 20px; font-size: 0.9rem; border-radius: 30px; margin-top: 0; box-shadow: none;">Book Consultation</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="background-wrapper">
+        <div id="aurora-bg"></div>
+        <canvas id="particle-canvas"></canvas>
+        <svg id="background-paths" width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="none">
+            <!-- Paths will be injected via JS -->
+        </svg>
+    </div>
+
+    <!-- Main Content Container -->
+    <main id="main-container">
+        <!-- Slide 0: Landing Section -->
+        <section id="slide-landing" class="slide landing-section">
+            <div class="landing-split-container">
+                <div class="landing-text-content">
+                    <h2 class="landing-subtitle">Serfolio Analytics</h2>
+                    <h1 class="landing-title">Accelerating Growth through Digital Intelligence</h1>
+                    <p class="landing-text">We engineer high-performance brand strategies, automated lead-capture systems, and custom web applications that scale your competitive advantage.</p>
+                    <div class="landing-actions">
+                        <button class="cta-button" onclick="document.getElementById('slide-3').scrollIntoView({ behavior: 'smooth' })">Explore Services</button>
+                        <button class="cta-button outline" onclick="document.getElementById('slide-4').scrollIntoView({ behavior: 'smooth' })">Book Consultation</button>
+                    </div>
+                </div>
+                <div class="landing-image-content">
+                    <div class="premium-image-wrapper">
+                        <img src="./digital_intelligence_hero.png" alt="Serfolio Analytics Digital Strategy">
+                    </div>
+                    <!-- Decorative back glow -->
+                    <div class="glow-backdrop"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 1: Brand Hero (WebGL Logo Showcase) -->
+        <section id="slide-1" class="slide">
+            <div class="slide-content hero-center">
+                <!-- Company Name above the logo -->
+                <h1 class="company-name">Serfolio Analytics</h1>
+                
+                <!-- Logo Space (Particle Canvas will appear behind/center) -->
+                <div class="logo-spacer"></div>
+                
+                <!-- Slogan below the logo -->
+                <p class="slogan">Strategy | Scalable | Legacy</p>
+            </div>
+        </section>
+
+        <!-- Slide 2: About Us -->
+        <section id="slide-2" class="slide">
+            <div class="slide-content">
+                <h2 class="section-title">About Us</h2>
+                <div class="about-container glass">
+                    <p class="about-text">
+                        We merge innovation, strategy, and precision to position brands ahead of the curve — driving accelerated growth and a powerful competitive edge.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Services -->
+        <section id="slide-3" class="slide">
+            <div class="slide-content">
+                <h2 class="section-title">Our Services</h2>
+                <div class="bento-grid" id="services-grid">
+                    <!-- Card: Social Media -->
+                    <div class="bento-card card-white" data-service="social" data-stagger="0">
+                        <div class="card-back-content">
+                             <h3>Social Media Management</h3>
+                            <p>We architect high-aesthetic brand presences across Instagram, Facebook, and LinkedIn. Our team constructs custom content calendars, edits and deploys optimized Reels distribution pipelines, and leverages real-time analytics to scale organic reach, foster deep community engagement, and convert casual profile views into loyal clients.</p>
+                            <a href="service-social.html" class="card-cta">Explore Service →</a>
+                        </div>
+                    </div>
+                    <!-- Card: Meta Automation -->
+                    <div class="bento-card card-blue" data-service="meta" data-stagger="1">
+                        <div class="card-back-content">
+                             <h3>Meta Automation</h3>
+                            <p>We engineer intelligent lead-capture pipelines and messaging automation powered by Meta's Graph API. From automated comment-to-DM triggers and auto-posting schedules to hyper-targeted ad optimization, we eliminate manual workflows and maximize qualified customer acquisitions with precision execution.</p>
+                            <a href="service-meta.html" class="card-cta">Explore Service →</a>
+                        </div>
+                    </div>
+                    <!-- Card: SEO -->
+                    <div class="bento-card card-white" data-service="seo" data-stagger="2">
+                        <div class="card-back-content">
+                             <h3>Search Engine Intelligence</h3>
+                            <p>We go far beyond traditional keyword strategies to master modern Search and Answer Engine Optimization (AEO). By optimizing your site's structure, Schema markup, and speed, we ensure your brand dominates traditional search results and ranks as a top source in AI engines like ChatGPT, Gemini, and Perplexity.</p>
+                            <a href="service-seo.html" class="card-cta">Explore Service →</a>
+                        </div>
+                    </div>
+                    <!-- Card: Email -->
+                    <div class="bento-card card-blue" data-service="email" data-stagger="3">
+                        <div class="card-back-content">
+                             <h3>Email Automation</h3>
+                            <p>We design high-converting, automated email drip campaigns triggered by user behavior. By segmenting your subscriber database, writing persuasive copywriting, and deploying automated follow-up sequences, we nurture prospects through custom marketing funnels that drive sales on autopilot.</p>
+                            <a href="service-email.html" class="card-cta">Explore Service →</a>
+                        </div>
+                    </div>
+                    <!-- Card: Marketing -->
+                    <div class="bento-card card-white" data-service="marketing" data-stagger="4">
+                        <div class="card-back-content">
+                             <h3>Branding &amp; Insights</h3>
+                            <p>We formulate data-driven corporate identities and advanced attribution tracking frameworks. Our services define your brand voice, design cohesive high-end visuals, and integrate custom analytics dashboards that monitor user behavior and advertising ROI to guide your strategic business growth decisions.</p>
+                            <a href="service-marketing.html" class="card-cta">Explore Service →</a>
+                        </div>
+                    </div>
+                    <!-- Card: Web -->
+                    <div class="bento-card card-blue" data-service="web" data-stagger="5">
+                        <div class="card-back-content">
+                             <h3>Websites &amp; Portfolios</h3>
+                            <p>We develop custom, ultra-fast web applications and cinematic portfolios designed for maximum first impressions. Built with clean semantic code, optimized page load speeds, and responsive layouts, our sites establish your absolute digital authority and turn visitors into paying customers.</p>
+                            <a href="service-web.html" class="card-cta">Explore Service →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Contact -->
+        <section id="slide-4" class="slide" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 100px; padding-bottom: 40px;">
+            <div class="slide-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; max-width: 600px;">
+                
+                <!-- Form Card -->
+                <div class="contact-card glass" style="width: 100%; padding: 30px; border-radius: 24px; margin-bottom: 20px;">
+                    <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 20px; text-align: center; background: var(--main-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Get In Touch</h2>
+                    <form id="contact-form" method="POST" data-netlify="true" name="contact" style="display: flex; flex-direction: column; gap: 12px;">
+                        <input type="hidden" name="form-name" value="contact" />
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <input type="text" name="name" placeholder="Name" required style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <input type="email" name="email" placeholder="Email" required style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <input type="tel" name="phone" placeholder="Phone (Optional)" style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <select name="service" required style="padding: 12px; border-radius: 8px;">
+                                <option value="" disabled selected>Service Interested In</option>
+                                <option value="Social Media Management">Social Media Management</option>
+                                <option value="Meta Automation">Meta Automation</option>
+                                <option value="Search Engine Intelligence">Search Engine Intelligence</option>
+                                <option value="Email Automation">Email Automation</option>
+                                <option value="Branding & Insights">Branding &amp; Insights</option>
+                                <option value="Websites & Portfolios">Websites & Portfolios</option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <textarea name="message" placeholder="Message" rows="3" required style="padding: 12px; border-radius: 8px;"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button" style="padding: 14px; border-radius: 8px;">Send Message →</button>
+                    </form>
+                </div>
+
+                <!-- Below Form Details -->
+                <!-- Mail & Phone -->
+                <div class="contact-info-below" style="display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; text-align: center;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.1rem;">✉️</span>
+                        <a href="mailto:serfolioanalytics@gmail.com" style="font-size: 1.05rem; font-weight: 600; color: var(--deep-blue); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary-blue)'" onmouseout="this.style.color='var(--deep-blue)'">serfolioanalytics@gmail.com</a>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.1rem;">📞</span>
+                        <a href="tel:9384931363" style="font-size: 1rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary-blue)'" onmouseout="this.style.color='var(--deep-blue)'">+91 93849 31363</a>
+                    </div>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="social-icons-footer" style="position: static; transform: none; margin-bottom: 20px; display: flex; justify-content: center; width: 100%;">
+                    <ul class="social-tooltip-list" style="display: flex; gap: 16px; justify-content: center; list-style: none; padding: 0; margin: 0;">
+                        <!-- Instagram -->
+                        <li class="social-icon-item icon-ig">
+                            <a href="https://www.instagram.com/serfolio_analytics" class="social-icon-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                                <div class="icon-fill"></div>
+                                <svg class="social-icon-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.66.013-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.669-.072-4.948-.2-4.358-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-5.838 2.435-5.838 5.838s2.435 5.838 5.838 5.838 5.838-2.435 5.838-5.838-2.435-5.838-5.838-5.838zm0 9.513c-2.03 0-3.675-1.645-3.675-3.675 0-2.03 1.645-3.675 3.675-3.675 2.03 0 3.675 1.645 3.675 3.675 0 2.03-1.645 3.675-3.675 3.675zm4.846-10.405c0 .73-.592 1.322-1.322 1.322-.73 0-1.322-.592-1.322-1.322 0-.73.592-1.322 1.322-1.322.73 0 1.322.592 1.322 1.322z"/></svg>
+                            </a>
+                            <div class="social-tooltip-text">Instagram</div>
+                        </li>
+                        <!-- Facebook -->
+                        <li class="social-icon-item icon-fb">
+                            <a href="https://www.facebook.com/SerfolioAnalytics" class="social-icon-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                                <div class="icon-fill"></div>
+                                <svg class="social-icon-svg" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.8.714-1.8 1.763v2.308h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                            </a>
+                            <div class="social-tooltip-text">Facebook</div>
+                        </li>
+                        <!-- X (Twitter) -->
+                        <li class="social-icon-item icon-x">
+                            <a href="https://x.com/SerfolioAnalyst" class="social-icon-link" aria-label="X" target="_blank" rel="noopener noreferrer">
+                                <div class="icon-fill"></div>
+                                <svg class="social-icon-svg" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153zM17.61 20.644h2.039L6.486 3.24H4.298l13.312 17.404z"/></svg>
+                            </a>
+                            <div class="social-tooltip-text">X</div>
+                        </li>
+                        <!-- LinkedIn -->
+                        <li class="social-icon-item icon-li">
+                            <a href="https://www.linkedin.com/in/serfolio-analytics-640091409?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-icon-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                                <div class="icon-fill"></div>
+                                <svg class="social-icon-svg" viewBox="0 0 24 24"><path d="M22.225 0h-20.451c-.98 0-1.774.793-1.774 1.774v20.451c0 .981.794 1.774 1.774 1.774h20.451c.981 0 1.775-.793 1.775-1.774v-20.451c0-.981-.794-1.774-1.775-1.774zm-13.542 20.452h-3.555v-11.428h3.555v11.428zm-1.778-12.92c-1.137 0-2.059-.922-2.059-2.059s.922-2.059 2.059-2.059 2.059.922 2.059 2.059-.922 2.059-2.059 2.059zm13.542 12.92h-3.555v-5.592c0-1.335-.027-3.051-1.86-3.051-1.861 0-2.146 1.453-2.146 2.955v5.688h-3.555v-11.428h3.411v1.562h.048c.475-.9 1.636-1.848 3.366-1.848 3.599 0 4.261 2.368 4.261 5.45v6.264z"/></svg>
+                            </a>
+                            <div class="social-tooltip-text">LinkedIn</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Rights Reserved Tag -->
+                <div style="text-align: center;">
+                    <p style="color: var(--text-body); font-size: 0.9rem; margin-bottom: 4px;">&copy; 2026 Serfolio Analytics. All rights reserved.</p>
+                    <div class="footer-links" style="display: flex; gap: 24px; justify-content: center;">
+                        <a href="privacy-policy.html" style="color: var(--text-body); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='var(--primary-blue)'" onmouseout="this.style.color='var(--text-body)'">Privacy Policy</a>
+                        <a href="terms-of-service.html" style="color: var(--text-body); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='var(--primary-blue)'" onmouseout="this.style.color='var(--text-body)'">Terms of Service</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module">
+        import { initParticles } from './particles.js';
+        initParticles('particle-canvas');
+    </script>
+    <script type="module" src="./app.js?v=1.0.3"></script>
+    <script type="module" src="./motion-animations.js"></script>
+</body>
+
+</html>
