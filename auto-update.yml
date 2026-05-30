@@ -1,0 +1,101 @@
+name: Auto‑Update & Deploy
+
+# --------------------------------------------------------------
+# 1️⃣ Trigger on every push to any branch (covers HTML, CSS, JS,
+#    images, or any other file). You can restrict to the default
+#    branch if you prefer.
+# --------------------------------------------------------------
+on:
+  push:
+    branches: [ '**' ]          # all branches
+
+# --------------------------------------------------------------
+# 2️⃣ Define the job that runs on a fresh Ubuntu VM.
+# --------------------------------------------------------------
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    # ------------------------------------------------------------
+    # 3️⃣ Steps – the actual pipeline
+    # ------------------------------------------------------------
+    steps:
+
+      # ---- 3.1️⃣ Checkout the repo (full history) ----------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0               # needed for later push back
+
+      # ---- 3.2️⃣ Set up Node (optional – remove if you don’t need) ---
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+
+      # ---- 3.3️⃣ Install any dev tools (e.g., prettier, postcss) ----
+      #     Replace the line below with whatever you actually need.
+      - name: Install npm dependencies
+        run: |
+          npm ci || npm install          # installs from package‑json if present
+
+      # ---- 3.4️⃣ Run your custom build script -----------------------
+      #     - Here we:
+      #         * add lazy‑loading to <img> (Python script)
+      #         * run any other build steps you have (e.g., webpack)
+      - name: Add lazy‑loading to images
+        env:
+          PYTHONUNBUFFERED: 1
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+
+          html_path = Path("index.html")
+          if html_path.is_file():
+              soup = BeautifulSoup(html_path.read_text(encoding="utf-8"), "html.parser")
+              changed = False
+              for img in soup.find_all("img"):
+                  if not img.has_attr("loading"):
+                      img["loading"] = "lazy"
+                      changed = True
+              if changed:
+                  html_path.write_text(str(soup), encoding="utf-8")
+                  print("✅ lazy‑loading added")
+          PY
+
+      # ---- 3.5️⃣ (Optional) Run any other build steps ---------------
+      # Example: compile SCSS, minify JS, generate a version hash, etc.
+      # Uncomment & edit as needed:
+      # - name: Build assets
+      #   run: npm run build
+
+      # ---- 3.6️⃣ Commit generated changes back to the same branch ----
+      - name: Commit changes (if any)
+        id: gitcommit
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Detect if anything changed
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "chore: auto‑update after push [skip ci]"
+          git push origin "${{ github.ref_name }}"
+          echo "no_changes=false" >> $GITHUB_OUTPUT
+
+      # ---- 3.7️⃣ Deploy to GitHub Pages (or any host) ---------------
+      #   * This step runs **only if** there were changes (or you can
+      #     always deploy regardless – remove the if‑condition).
+      - name: Deploy to GitHub Pages
+        if: steps.gitcommit.outputs.no_changes == 'false' || steps.gitcommit.outputs.no_changes == ''
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .                # root of repo (static site)
+          # If you keep the site in a subfolder, change publish_dir accordingly.
+          # Example: publish_dir: dist
