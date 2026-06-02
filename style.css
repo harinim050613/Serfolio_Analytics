@@ -2120,7 +2120,6 @@ html.lenis, html.lenis body {
     
     .bento-card {
         will-change: transform, opacity !important;
-        transform: translateZ(0) !important;
         backface-visibility: hidden !important;
     }
 }
@@ -2146,5 +2145,77 @@ html.lenis, html.lenis body {
         -webkit-hyphens: none !important;
         word-spacing: normal !important;
         letter-spacing: -0.01em !important;
+    }
+}
+
+/* Override bento card image placement specifically for mobile */
+@media (max-width: 768px) {
+    .card-right-content {
+        justify-content: center !important;
+        align-items: flex-end !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    
+    .bento-card picture {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: flex-end !important;
+    }
+
+    .card-illustration {
+        object-fit: cover !important;
+        object-position: center bottom !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+/* Override bento card to side-by-side on mobile */
+@media (max-width: 768px) {
+    .card-split-container {
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+    
+    .card-left-content {
+        flex: 1.3 !important;
+        padding: 15px !important;
+        padding-right: 5px !important;
+    }
+    
+    .card-right-content {
+        flex: 1.0 !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        padding: 0 !important; /* Remove all padding so it touches the edges */
+        margin: 0 !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .card-illustration {
+        object-fit: cover !important; /* Fills container entirely, crops to fit */
+        object-position: center !important; /* Center the graphic */
+        width: 100% !important;
+        height: 100% !important; /* Forces the image to stretch to top and bottom bounds */
+        max-height: none !important;
+    }
+    
+    /* Shrink the text to fit the narrow left column */
+    .card-left-content h3 {
+        font-size: 1.15rem !important;
+        margin-bottom: 8px !important;
+    }
+    .card-left-content p {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 12px !important;
+    }
+    .card-cta {
+        font-size: 0.75rem !important;
+        padding: 8px 12px !important;
     }
 }
