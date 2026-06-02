@@ -20,6 +20,17 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css?v=1.0.3">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZV0EYWXQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VNZV0EYWXQ');
+      gtag('config', 'AW-14974489715');
+    </script>
 </head>
 <body>
     <div id="cursor-glow"></div>
@@ -30,7 +41,7 @@
                 <span class="logo-text"><span class="brand-dark">Serfolio</span> <span class="brand-light">Analytics</span></span>
             </div>
             <div class="header-actions" style="display: flex; align-items: center;">
-                <button class="nav-link" onclick="window.location.href='index.html#slide-3'" style="margin-right: 16px;">Back to Services</button>
+                <button class="nav-link" onclick="window.location.href='index.html#slide-3'" style="margin-right: 16px;">Back</button>
                 <div class="menubar-wrapper">
                     <button class="menubar-toggle" aria-label="Toggle Menu">
                         <span class="bar"></span>
@@ -41,11 +52,11 @@
                         <a href="index.html#slide-2" class="menubar-dropdown-link" onclick="if(location.pathname.endsWith('index.html')||location.pathname==='/'){event.preventDefault();document.getElementById('slide-2').scrollIntoView({behavior:'smooth'});this.closest('.menubar-wrapper').classList.remove('active');}">About Us</a>
                         <div class="menubar-dropdown-subwrapper">
                             <span class="menubar-dropdown-subtitle">Our Services</span>
-                            <a href="service-social.html" class="menubar-dropdown-sublink">Social Media Growth &amp; Content Pipelines</a>
-                            <a href="service-meta.html" class="menubar-dropdown-sublink">Graph API &amp; Lead-Capture Systems</a>
-                            <a href="service-seo.html" class="menubar-dropdown-sublink">Cognitive Search &amp; AEO Dominance</a>
-                            <a href="service-marketing.html" class="menubar-dropdown-sublink">Corporate Identity &amp; Analytics Attribution</a>
-                            <a href="service-web.html" class="menubar-dropdown-sublink">Bespoke Web Applications &amp; Engineering</a>
+                            <a href="service-social.html" class="menubar-dropdown-sublink">Social Media Management</a>
+                            <a href="service-meta.html" class="menubar-dropdown-sublink">Meta Automation</a>
+                            <a href="service-seo.html" class="menubar-dropdown-sublink">Search Engine Intelligence</a>
+                            <a href="service-marketing.html" class="menubar-dropdown-sublink">Branding</a>
+                            <a href="service-web.html" class="menubar-dropdown-sublink">Website and Portfolio</a>
                         </div>
                         <a href="index.html#slide-4" class="menubar-dropdown-link" onclick="if(location.pathname.endsWith('index.html')||location.pathname==='/'){event.preventDefault();document.getElementById('slide-4').scrollIntoView({behavior:'smooth'});this.closest('.menubar-wrapper').classList.remove('active');}">Contact</a>
                     </div>

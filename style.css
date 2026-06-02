@@ -624,8 +624,35 @@ h6 {
     text-align: left;
 }
 
+.vision-mission-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 48px 0 !important;
+    border-radius: 40px;
+    text-align: left;
+}
+
+.vision-mission-container p {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    font-size: 1.15rem !important;
+    line-height: 1.95 !important;
+    margin: 0 auto 1.5rem !important;
+    max-width: 1100px !important;
+    color: var(--text-body) !important;
+}
+
+.vision-mission-container h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
 .about-text {
-    font-size: 1.4rem;
+    font-size: 1.15rem !important;
     line-height: 1.8;
     color: var(--text-body);
 }
@@ -731,7 +758,7 @@ h6 {
 
 /* Services container - handles scroll height on desktop */
 #slide-3.services-section {
-    height: 280vh;
+    height: 400vh;
     position: relative;
     display: block;
     padding: 0;
@@ -831,20 +858,13 @@ h6 {
     margin-bottom: 20px;
 }
 
-.card-right-content {
-    flex: 0.9;
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-}
 
-.card-illustration {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.8s ease;
-}
+
+
+
+
+
+
 
 .bento-card:hover .card-illustration {
     transform: scale(1.05);
@@ -1146,6 +1166,7 @@ textarea:focus {
     /* About */
     .about-container { padding: 48px 0 !important; }
     .about-text { font-size: 1rem !important; }
+    .vision-mission-container p { font-size: 1rem !important; }
     
     /* Stacking layout managed dynamically in primary bento cards rules */
     
@@ -1855,15 +1876,7 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea, button, .nav-link {
 }
 
 /* About Us Paragraph - justified & professional spacing */
-.about-text {
-    text-align: justify !important;
-    text-justify: inter-word !important;
-    font-size: 1.15rem !important;
-    line-height: 1.95 !important;
-    margin: 0 auto !important;
-    max-width: 1100px !important;
-    color: var(--text-body) !important;
-}
+
 
 /* Technology Stack Marquee */
 .tech-marquee-section {
@@ -1902,7 +1915,7 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea, button, .nav-link {
 .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee-scroll 35s linear infinite;
+    animation: marquee-scroll 18s linear infinite;
 }
 .marquee-group {
     display: flex;
@@ -1971,5 +1984,167 @@ body, h1, h2, h3, h4, h5, h6, input, select, textarea, button, .nav-link {
     }
     .logo-name {
         font-size: 0.65rem;
+    }
+}
+
+/* ─── 3D Preloader ─── */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #FFFFFF; /* White background as requested */
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+}
+
+#preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.preloader-images {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.preloader-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* Removes white background from the images */
+}
+
+.preloader-img.single-logo {
+    animation: gentle-heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes gentle-heartbeat {
+    0%, 100% { 
+        transform: scale(0.95); 
+    }
+    50% { 
+        transform: scale(1.05); 
+    }
+}
+
+/* ─── Lenis Scrolling ─── */
+html.lenis, html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+.card-right-content {
+    flex: 0.9;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+/* Hero Blur Background System */
+.hero-blur-wrapper {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    height: 80vh;
+    min-height: 500px;
+    margin-bottom: 60px;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-blur-bg {
+    position: absolute;
+    top: -20%; left: -20%;
+    width: 140%; height: 140%;
+    object-fit: cover;
+    filter: blur(50px) brightness(0.5);
+    z-index: 0;
+    opacity: 0.9;
+}
+
+.hero-blur-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    box-shadow: inset 0 0 80px 40px rgba(0,0,0,0.6);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-blur-fg {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+/* Mobile Optimizations - Forced hardware acceleration and layout fixes */
+@media (max-width: 768px) {
+    .about-text, .vision-mission-container p {
+        text-align: left !important;
+        text-justify: auto !important;
+    }
+    
+    .bento-card {
+        will-change: transform, opacity !important;
+        transform: translateZ(0) !important;
+        backface-visibility: hidden !important;
+    }
+}
+
+
+/* --- UNIFIED TYPOGRAPHY ENFORCEMENT --- */
+.about-text, .vision-mission-container p {
+    font-size: 1.15rem !important;
+    line-height: 1.8 !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+}
+
+@media (max-width: 768px) {
+    .about-text, .vision-mission-container p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        text-align: justify !important;
+        text-justify: auto !important;
+        hyphens: none !important;
+        -webkit-hyphens: none !important;
+        word-spacing: normal !important;
+        letter-spacing: -0.01em !important;
     }
 }

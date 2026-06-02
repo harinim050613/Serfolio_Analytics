@@ -3,34 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bespoke Web Applications &amp; Engineering | Serfolio Analytics</title>
+    <title>Website and Portfolio | Serfolio Analytics</title>
     <meta name="description" content="Serfolio Analytics engineers custom web applications, WebGL-powered 3D interfaces, and secure serverless software architectures.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Bespoke Web Applications &amp; Engineering | Serfolio Analytics">
+    <meta property="og:title" content="Website and Portfolio | Serfolio Analytics">
     <meta property="og:description" content="Serfolio Analytics engineers custom web applications, WebGL-powered 3D interfaces, and secure serverless software architectures.">
     <meta property="og:image" content="https://serfolioanalytics.in/logo.png">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bespoke Web Applications &amp; Engineering | Serfolio Analytics">
+    <meta name="twitter:title" content="Website and Portfolio | Serfolio Analytics">
     <meta name="twitter:description" content="Serfolio Analytics engineers custom web applications, WebGL-powered 3D interfaces, and secure serverless software architectures.">
     <meta name="twitter:image" content="https://serfolioanalytics.in/logo.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css?v=1.0.3">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZV0EYWXQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VNZV0EYWXQ');
+      gtag('config', 'AW-14974489715');
+    </script>
 </head>
 <body>
     <div id="cursor-glow"></div>
     <header class="site-header">
         <div class="header-container">
-            <div id="logo-container" class="logo-fixed" onclick="window.location.href='index.html'" style="position: static; margin: 0; cursor: pointer;">
+            <div id="logo-container" class="logo-fixed" onclick="window.location.href='index.html?service=web'" style="position: static; margin: 0; cursor: pointer;">
                 <img src="./logo.png" alt="Serfolio Analytics Logo" id="main-logo" loading="lazy">
                 <span class="logo-text"><span class="brand-dark">Serfolio</span> <span class="brand-light">Analytics</span></span>
             </div>
             <div class="header-actions" style="display: flex; align-items: center;">
-                <button class="nav-link" onclick="window.location.href='index.html#slide-3'" style="margin-right: 16px;">Back to Services</button>
+                <button class="nav-link" onclick="window.location.href='index.html?service=web'" style="margin-right: 16px;">Back</button>
                 <div class="menubar-wrapper">
                     <button class="menubar-toggle" aria-label="Toggle Menu">
                         <span class="bar"></span>
@@ -41,11 +52,12 @@
                         <a href="index.html#slide-2" class="menubar-dropdown-link" onclick="if(location.pathname.endsWith('index.html')||location.pathname==='/'){event.preventDefault();document.getElementById('slide-2').scrollIntoView({behavior:'smooth'});this.closest('.menubar-wrapper').classList.remove('active');}">About Us</a>
                         <div class="menubar-dropdown-subwrapper">
                             <span class="menubar-dropdown-subtitle">Our Services</span>
-                            <a href="service-social.html" class="menubar-dropdown-sublink">Social Media Growth &amp; Content Pipelines</a>
-                            <a href="service-meta.html" class="menubar-dropdown-sublink">Graph API &amp; Lead-Capture Systems</a>
-                            <a href="service-seo.html" class="menubar-dropdown-sublink">Cognitive Search &amp; AEO Dominance</a>
-                            <a href="service-marketing.html" class="menubar-dropdown-sublink">Corporate Identity &amp; Analytics Attribution</a>
-                            <a href="service-web.html" class="menubar-dropdown-sublink">Bespoke Web Applications &amp; Engineering</a>
+                            <a href="service-social.html" class="menubar-dropdown-sublink">Social Media Management</a>
+                            <a href="service-meta.html" class="menubar-dropdown-sublink">Meta Automation</a>
+                            <a href="service-seo.html" class="menubar-dropdown-sublink">Search Engine Intelligence</a>
+                            <a href="service-marketing.html" class="menubar-dropdown-sublink">Branding</a>
+                            <a href="service-web.html" class="menubar-dropdown-sublink">Website and Portfolio</a>
+                            <a href="service-dark-data.html" class="menubar-dropdown-sublink">Dark Data Monetization</a>
                         </div>
                         <a href="index.html#slide-4" class="menubar-dropdown-link" onclick="if(location.pathname.endsWith('index.html')||location.pathname==='/'){event.preventDefault();document.getElementById('slide-4').scrollIntoView({behavior:'smooth'});this.closest('.menubar-wrapper').classList.remove('active');}">Contact</a>
                     </div>
@@ -59,9 +71,11 @@
     </div>
     
     <main class="service-detail-container">
-        <h1 class="section-title" style="margin-bottom: 20px;">Bespoke Web Applications &amp; Engineering</h1>
-        <div class="service-image-wrapper">
-            <img src="./services_web.png" alt="Websites & Portfolios" loading="lazy">
+        <h1 class="section-title" style="margin-bottom: 20px;">Website and Portfolio</h1>
+        <div class="service-image-wrapper hero-blur-wrapper">
+            <img src="./service%20detailing%20page%20images/website.png" class="hero-blur-bg" alt="bg">
+            <div class="hero-blur-overlay"></div>
+            <img src="./service%20detailing%20page%20images/website.png" alt="Hero Image" class="hero-blur-fg">
         </div>
         <div class="service-content">
             <p style="text-align: justify;">

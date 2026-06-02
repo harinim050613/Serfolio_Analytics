@@ -5,6 +5,41 @@ window.scrollTo(0, 0);
 document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // ─── 0. Lenis Smooth Scrolling Integration ─────────────────────────────
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth exponential easing
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+    });
+
+    // Synchronize Lenis scrolling with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    // ─── 0.1 High-End CSS Image Preloader ────────────────────────────────
+    const preloader = document.getElementById('preloader');
+    
+    if (preloader) {
+        // Hide preloader when window is fully loaded (minimum timeout 1.5s for premium feel)
+        const minLoadingTime = new Promise(resolve => setTimeout(resolve, 1500));
+        const windowLoadEvent = new Promise(resolve => window.addEventListener('load', resolve));
+        
+        Promise.all([minLoadingTime, windowLoadEvent]).then(() => {
+            preloader.classList.add('loaded');
+        });
+    }
+
     // ─── 1. Cursor Glow ───────────────────────────────────────────────────
     const cursorGlow = document.getElementById('cursor-glow');
     document.addEventListener('mousemove', (e) => {
@@ -122,6 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Attach passive listeners
     window.addEventListener('scroll', updateCardStacking, { passive: true });
     window.addEventListener('resize', updateCardStacking, { passive: true });
+    // Also bind to Lenis explicitly if needed, but ScrollTrigger.update covers most
+    lenis.on('scroll', updateCardStacking);
     // Initialize immediately
     updateCardStacking();
 
@@ -218,4 +255,32 @@ document.addEventListener('DOMContentLoaded', () => {
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
     }, 100);
+
+    // Restore service card position if present in URL
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const restoreService = urlParams.get('service');
+    if (restoreService && servicesContainer && bentoCards.length > 0) {
+        const targetIndex = bentoCards.findIndex(c => c.dataset.service === restoreService);
+        if (targetIndex >= 0) {
+            setTimeout(() => {
+                const sectionTop = servicesContainer.getBoundingClientRect().top + window.scrollY;
+                const scrollableHeight = servicesContainer.offsetHeight - window.innerHeight;
+                const step = 1 / (bentoCards.length - 1);
+                
+                // Add a small pixel buffer (e.g., 50px) to ensure the card finishes its upward flight animation
+                const targetScrollY = sectionTop + (targetIndex * step * scrollableHeight) + 50;
+                
+                if (typeof lenis !== 'undefined') {
+                    lenis.scrollTo(targetScrollY, { immediate: true });
+                } else {
+                    window.scrollTo(0, targetScrollY);
+                }
+            }, 100); 
+        }
+    }
+
 });
