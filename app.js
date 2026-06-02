@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Attach passive listeners
-    window.addEventListener('scroll', updateCardStacking, { passive: true });
+    // Removed double-firing native scroll listener for better performance
     window.addEventListener('resize', updateCardStacking, { passive: true });
     // Also bind to Lenis explicitly if needed, but ScrollTrigger.update covers most
     lenis.on('scroll', updateCardStacking);

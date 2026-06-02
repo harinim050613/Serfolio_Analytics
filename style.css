@@ -873,7 +873,7 @@ h6 {
 /* ── Mobile Stacking Cards Configuration ── */
 @media (max-width: 768px) {
     #slide-3.services-section {
-        height: 280vh !important;
+        height: 450vh !important; /* Increased to slow down card stacking on mobile */
         overflow: visible !important;
     }
     .services-sticky-wrapper {
@@ -2217,5 +2217,13 @@ html.lenis, html.lenis body {
     .card-cta {
         font-size: 0.75rem !important;
         padding: 8px 12px !important;
+    }
+}
+
+/* Safe Hardware Acceleration for Mobile Bento Cards */
+@media (max-width: 768px) {
+    .bento-card {
+        will-change: transform, opacity;
+        -webkit-transform: translate3d(0,0,0);
     }
 }
